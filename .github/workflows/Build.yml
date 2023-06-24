@@ -42,4 +42,6 @@ jobs:
                 context: .
                 file: ./Dockerfile
                 push: true
-                tags: ${{ secrets.DOCKERHUB_USERNAME }}/booking-service:1.0.1
+                tags: ${{ secrets.DOCKERHUB_USERNAME }}/booking-service:1.0.2
+      - name: Run Docker container
+        run: docker run -d -p 8085:8080 --name booking-service-container ${{ secrets.DOCKERHUB_USERNAME }}/booking-service:1.0.2
